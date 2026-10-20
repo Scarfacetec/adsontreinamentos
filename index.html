@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101417">
+  <meta name="description" content="Adson Silveira Santos — palestrante e consultor empresarial especialista em vendas, negociação e desenvolvimento de equipes comerciais.">
+  <title>Adson Treinamentos | Vendas que desenvolvem pessoas</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #101417;
+      --ink-soft: #171d20;
+      --panel: #1c2427;
+      --cream: #f4efe7;
+      --muted: #b4b4ae;
+      --copper: #c99365;
+      --copper-light: #e5b98e;
+      --blue: #7395a3;
+      --line: rgba(244, 239, 231, .13);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--ink); color: var(--cream); font-family: var(--sans); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--copper-light); font-size: .72rem; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; display: inline-block; width: 30px; height: 1px; background: currentColor; }
+    .topbar { position: absolute; inset: 0 0 auto; z-index: 3; }
+    .nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: .01em; }
+    .brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(201,147,101,.65); border-radius: 50%; color: var(--copper-light); font: 700 1rem var(--serif); }
+    .brand-logo { display: block; width: 154px; height: auto; max-height: 56px; object-fit: contain; }
+    .brand span:last-child { display: grid; line-height: 1.15; }
+    .brand small { margin-top: 4px; color: var(--muted); font-size: .62rem; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 32px; color: #dedbd4; font-size: .87rem; }
+    .nav-links a:hover, .text-link:hover { color: var(--copper-light); }
+    .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 21px; border: 1px solid var(--copper); border-radius: 3px; background: var(--copper); color: #171717; font-weight: 750; font-size: .86rem; transition: .2s ease; }
+    .nav-cta { min-height: 42px; padding: 0 16px; font-size: .78rem; }
+    .button:hover, .nav-cta:hover { background: var(--copper-light); border-color: var(--copper-light); transform: translateY(-2px); }
+    .button.secondary { background: transparent; border-color: var(--line); color: var(--cream); }
+    .button.secondary:hover { border-color: var(--copper); color: var(--copper-light); }
+    .hero { position: relative; min-height: 720px; overflow: hidden; display: grid; align-items: center; padding: 140px 0 74px; background: linear-gradient(90deg, rgba(12,15,17,.96) 0%, rgba(14,18,20,.87) 52%, rgba(14,18,20,.72) 100%), radial-gradient(ellipse at 78% 42%, rgba(46,70,78,.52), transparent 37%), url("assets/panoramica.jpg") center bottom / cover no-repeat; }
+    .hero::after { content: ""; position: absolute; width: 560px; height: 560px; right: -130px; top: 90px; border: 1px solid rgba(201,147,101,.17); border-radius: 50%; box-shadow: 0 0 0 54px rgba(201,147,101,.025), 0 0 0 110px rgba(201,147,101,.02); pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 60px; }
+    .hero-copy { max-width: 650px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 690px; margin: 24px 0 21px; font: 400 clamp(3.2rem, 6vw, 5.7rem)/.99 var(--serif); letter-spacing: -.045em; }
+    h1 em { color: var(--copper-light); font-style: normal; }
+    .hero-copy > p { max-width: 545px; margin-bottom: 30px; color: #c8c7c1; font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { display: flex; align-items: center; gap: 13px; margin-top: 45px; color: var(--muted); font-size: .78rem; }
+    .hero-note b { color: var(--cream); font-weight: 650; }
+    .note-rule { height: 1px; width: 40px; background: var(--copper); }
+    .portrait-frame { position: relative; justify-self: end; width: min(100%, 432px); aspect-ratio: .84; padding: 14px; border: 1px solid rgba(229,185,142,.45); }
+    .portrait-inner { position: relative; display: grid; place-items: end center; width: 100%; height: 100%; overflow: hidden; background: radial-gradient(ellipse at 53% 40%, rgba(112,144,154,.38), transparent 37%), linear-gradient(145deg, #283238, #111719 69%); }
+    .portrait-photo { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 24%; }
+    .portrait-inner::before { content: ""; position: absolute; width: 72%; aspect-ratio: 1; top: 10%; border: 1px solid rgba(229,185,142,.4); border-radius: 50%; box-shadow: 0 0 0 25px rgba(229,185,142,.035), 0 0 60px rgba(112,144,154,.2); }
+    .portrait-placeholder { position: absolute; z-index: 0; inset: 0; display: grid; place-items: center; color: rgba(244,239,231,.82); text-align: center; }
+    .portrait-placeholder[hidden] { display: none; }
+    .portrait-placeholder span { font: 400 clamp(5rem, 11vw, 8rem)/1 var(--serif); letter-spacing: -.08em; }
+    .portrait-caption { position: relative; z-index: 2; width: 100%; padding: 22px 18px 14px; background: linear-gradient(transparent, rgba(8,11,12,.92)); }
+    .portrait-caption strong { display: block; font: 400 1.55rem var(--serif); }
+    .portrait-caption small { color: #c8c7c1; letter-spacing: .12em; text-transform: uppercase; font-size: .66rem; }
+    .portrait-tag { position: absolute; top: 11%; right: -19px; z-index: 2; padding: 10px 14px; background: var(--copper); color: #151719; font-size: .69rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); }
+    .section { padding: 112px 0; }
+    .section.light { background: #e9e4dc; color: #171a1b; }
+    .section.light .eyebrow { color: #8f603d; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
+    .section-head h2 { max-width: 690px; margin: 17px 0 0; font: 400 clamp(2.6rem, 4.5vw, 4.2rem)/1.05 var(--serif); letter-spacing: -.035em; }
+    .section-head p { max-width: 370px; margin-bottom: 4px; color: #777a77; font-size: .96rem; }
+    .story-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: start; }
+    .story-copy { max-width: 620px; color: #555a59; font-size: 1.04rem; }
+    .story-copy p { margin-bottom: 20px; }
+    .story-copy strong { color: #202526; }
+    .values { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(23,26,27,.18); }
+    .value { padding: 22px 17px 22px 0; border-bottom: 1px solid rgba(23,26,27,.18); }
+    .value:nth-child(odd) { border-right: 1px solid rgba(23,26,27,.18); }
+    .value:nth-child(even) { padding-left: 18px; }
+    .value b { display: block; margin-bottom: 5px; font: 400 1.3rem var(--serif); }
+    .value span { color: #737876; font-size: .82rem; }
+    .quote-band { padding: 55px 0; border-block: 1px solid var(--line); background: #151b1e; }
+    .quote-band blockquote { max-width: 900px; margin: 0 auto; text-align: center; font: 400 clamp(1.7rem, 3.5vw, 3rem)/1.24 var(--serif); }
+    .quote-band blockquote span { color: var(--copper-light); }
+    .gallery { background: #13191b; }
+    .gallery .section-head p { color: #b4b4ae; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .gallery-card { display: block; overflow: hidden; border: 1px solid var(--line); background: var(--ink-soft); transition: .2s ease; }
+    .gallery-card:hover { border-color: rgba(229,185,142,.65); transform: translateY(-4px); }
+    .gallery-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #20282a; }
+    .gallery-caption { padding: 18px 18px 20px; }
+    .gallery-caption small { display: block; margin-bottom: 5px; color: var(--copper-light); font-size: .64rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .gallery-caption strong { font: 400 1.25rem var(--serif); }
+    .offer-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
+    .book-art { position: relative; display: grid; place-items: center; min-height: 475px; overflow: hidden; background: linear-gradient(145deg, #24333a, #111517 72%); }
+    .book-art::before, .book-art::after { content: ""; position: absolute; border: 1px solid rgba(229,185,142,.28); border-radius: 50%; width: 300px; height: 300px; }
+    .book-art::after { width: 390px; height: 390px; }
+    .book-cover { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: space-between; width: 235px; height: 340px; padding: 28px 24px; border-left: 7px solid #8e613f; background: linear-gradient(150deg, #1d282d, #0b1012); box-shadow: 25px 24px 35px rgba(0,0,0,.4); transform: rotate(-4deg); }
+    .book-cover small { color: var(--copper-light); font-size: .59rem; letter-spacing: .16em; text-transform: uppercase; }
+    .book-cover b { font: 400 2.05rem/1.02 var(--serif); }
+    .book-cover span { color: #c7c4bc; font-size: .68rem; }
+    .offer-copy h2 { margin: 17px 0 20px; font: 400 clamp(2.6rem, 4vw, 3.8rem)/1.04 var(--serif); letter-spacing: -.03em; }
+    .offer-copy > p { color: #c1c3bf; }
+    .benefits { display: grid; gap: 12px; margin: 28px 0 30px; padding: 0; list-style: none; }
+    .benefits li { display: flex; gap: 12px; color: #e3dfd6; font-size: .9rem; }
+    .check { color: var(--copper-light); }
+    .micro { margin-top: 14px; color: #929794; font-size: .73rem; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid rgba(23,26,27,.18); }
+    .service { min-height: 245px; padding: 28px; border-right: 1px solid rgba(23,26,27,.18); }
+    .service:last-child { border-right: 0; }
+    .service-num { display: block; margin-bottom: 45px; color: #8f603d; font: 400 1.15rem var(--serif); }
+    .service h3 { margin-bottom: 11px; font: 400 1.55rem var(--serif); }
+    .service p { margin: 0; color: #6e7471; font-size: .87rem; }
+    .contact { background: linear-gradient(115deg, #151b1e, #1d292e); }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: start; }
+    .contact-copy h2 { margin: 18px 0; font: 400 clamp(2.7rem, 4.5vw, 4rem)/1.02 var(--serif); }
+    .contact-copy p { max-width: 410px; color: #bdc0bb; }
+    .socials { display: flex; gap: 10px; margin-top: 30px; }
+    .social-icon { display: grid; place-items: center; width: 43px; height: 43px; border: 1px solid var(--line); border-radius: 50%; color: #dedbd4; transition: .2s ease; }
+    .social-icon:hover { border-color: var(--copper); color: var(--copper-light); transform: translateY(-2px); }
+    .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 30px; border: 1px solid var(--line); background: rgba(10,14,16,.35); }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: #d8d5ce; font-size: .75rem; font-weight: 650; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid rgba(244,239,231,.17); border-radius: 2px; background: rgba(255,255,255,.035); color: var(--cream); padding: 12px 13px; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--copper); }
+    .field select option { color: #171a1b; }
+    .field textarea { min-height: 104px; resize: vertical; }
+    .contact-form .button { grid-column: 1 / -1; width: 100%; border: 0; cursor: pointer; }
+    .privacy-note { grid-column: 1 / -1; margin: -4px 0 0; color: #9fa6a3; font-size: .7rem; }
+    footer { padding: 27px 0; background: #0c1012; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #949995; font-size: .75rem; }
+    .footer-row a { color: #d9d4cb; }
+    .footer-logo { display: block; width: 128px; max-height: 100px; object-fit: contain; }
+    .mobile-menu { display: none; }
+    @media (max-width: 850px) {
+      .nav-links { gap: 18px; }
+      .nav-links a:nth-child(2) { display: none; }
+      .hero { min-height: auto; padding: 128px 0 70px; }
+      .hero-grid { gap: 36px; }
+      .portrait-frame { width: min(100%, 340px); }
+      .story-grid, .offer-grid, .contact-grid { gap: 48px; }
+      .service { padding: 22px; }
+      .gallery-grid { gap: 12px; }
+      .gallery-caption { padding: 15px 13px 17px; }
+    }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 36px, 520px); }
+      .nav { min-height: 72px; }
+      .nav-links { gap: 0; }
+      .nav-links > a:not(.nav-cta) { display: none; }
+      .nav-cta { min-height: 39px; padding: 0 12px; font-size: .72rem; }
+      .hero { padding: 112px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 39px; }
+      h1 { font-size: clamp(3rem, 14vw, 4.5rem); }
+      .hero-copy > p { font-size: 1rem; }
+      .portrait-frame { justify-self: center; width: min(83%, 330px); }
+      .hero-note { margin-top: 30px; }
+      .section { padding: 76px 0; }
+      .section-head { display: block; margin-bottom: 34px; }
+      .section-head p { margin-top: 18px; }
+      .story-grid, .offer-grid, .contact-grid { grid-template-columns: 1fr; gap: 38px; }
+      .values { margin-top: 4px; }
+      .book-art { min-height: 380px; }
+      .book-cover { width: 205px; height: 300px; }
+      .services { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+      .gallery-card img { aspect-ratio: 1.2 / 1; }
+      .service { min-height: 0; border-right: 0; border-bottom: 1px solid rgba(23,26,27,.18); }
+      .service:last-child { border-bottom: 0; }
+      .service-num { margin-bottom: 21px; }
+      .contact-form { padding: 21px; grid-template-columns: 1fr; }
+      .field.full, .contact-form .button, .privacy-note { grid-column: 1; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .quote-band { padding: 42px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Adson Treinamentos, início">
+        <img class="brand-logo" src="assets/logotipo-adson.png" alt="Adson Treinamentos">
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#ebook">E-book</a>
+        <a class="nav-cta" href="#contato">Contrate uma palestra <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Consultoria · Palestras · Treinamentos</div>
+          <h1>Vendas que desenvolvem <em>pessoas.</em></h1>
+          <p>Adson Silveira Santos ajuda empresas a fortalecer sua área comercial com técnica, negociação e atendimento que colocam as pessoas no centro dos resultados.</p>
+          <div class="actions">
+            <a class="button" href="#contato">Leve para sua empresa <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="#ebook">Conheça o e-book</a>
+          </div>
+          <div class="hero-note"><span class="note-rule"></span><span><b>Especialista em vendas</b> · Palestrante e consultor empresarial</span></div>
+        </div>
+        <div class="portrait-frame" aria-label="Adson Silveira Santos">
+          <span class="portrait-tag">Desenvolvimento comercial</span>
+          <div class="portrait-inner">
+            <img class="portrait-photo" src="assets/foto-principal.jpeg" alt="Adson Silveira Santos">
+            <div class="portrait-placeholder" aria-hidden="true" hidden><span>AS</span></div>
+            <div class="portrait-caption"><strong>Adson Silveira Santos</strong><small>Palestrante & consultor em vendas</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="sobre">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Sobre Adson</div><h2>Experiência comercial com foco em gente.</h2></div>
+          <p>Vender é uma competência que se aprende, se pratica e transforma a forma como empresas atendem e crescem.</p>
+        </div>
+        <div class="story-grid">
+          <div class="story-copy">
+            <p>Sou <strong>palestrante e consultor empresarial</strong>, especialista em negociação, fechamento e desenvolvimento de pessoas. Minha trajetória no setor comercial me ensinou que resultado consistente começa com equipes preparadas e relações de confiança.</p>
+            <p>Trabalho com empresas e profissionais que querem tornar a venda mais clara, humana e eficiente — da primeira conversa ao fechamento.</p>
+          </div>
+          <div class="values" aria-label="Áreas de atuação">
+            <div class="value"><b>Negociação</b><span>Mais segurança para conduzir conversas.</span></div>
+            <div class="value"><b>Fechamento</b><span>Estratégia para avançar com confiança.</span></div>
+            <div class="value"><b>Atendimento</b><span>Experiências que fortalecem relações.</span></div>
+            <div class="value"><b>Gestão comercial</b><span>Equipes e processos orientados a resultado.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="galeria">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Conteúdo em destaque</div><h2>Ideias, presença e prática.</h2></div>
+          <p>Uma seleção de imagens e vídeos publicados no perfil. Toque em cada item para ver a publicação original.</p>
+        </div>
+        <div class="gallery-grid">
+          <a class="gallery-card" href="https://www.instagram.com/adsontreinamentos_oficial/p/Ddbb4bzM2lR/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/destaque-treinamento.jpeg" alt="Participantes durante um treinamento comercial" loading="lazy">
+            <div class="gallery-caption"><small>Treinamento em ação</small><strong>Aprendizado que aproxima</strong></div>
+          </a>
+          <a class="gallery-card" href="https://www.instagram.com/adsontreinamentos_oficial/reel/Dd91wLPP-81/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/adson-palestrando.jpeg" alt="Adson palestrando em um evento" loading="lazy">
+            <div class="gallery-caption"><small>Presença e experiência</small><strong>Conhecimento compartilhado</strong></div>
+          </a>
+          <a class="gallery-card" href="https://www.instagram.com/adsontreinamentos_oficial/reel/DerSCK8h4xI/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/adson-ebook-video.jpg" alt="Capa do vídeo sobre o e-book A Mente do Fechamento" loading="lazy">
+            <div class="gallery-caption"><small>E-book em destaque</small><strong>A Mente do Fechamento</strong></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band" aria-label="Princípio de trabalho">
+      <div class="wrap"><blockquote>“Fazer a venda tem que ser <span>fácil</span> quando você sabe lidar com gente.”</blockquote></div>
+    </section>
+
+    <section class="section" id="ebook">
+      <div class="wrap offer-grid">
+        <div class="book-art" aria-label="Representação visual do e-book A Mente do Fechamento">
+          <div class="book-cover"><small>Adson Silveira Santos</small><b>A Mente do Fechamento</b><span>Neurociência aplicada à arte de negociar e fechar vendas</span></div>
+        </div>
+        <div class="offer-copy">
+          <div class="eyebrow">E-book · Neurovendas</div>
+          <h2>Entenda a decisão. Conduza o fechamento.</h2>
+          <p><strong>A Mente do Fechamento</strong> reúne ideias e práticas de negociação e vendas para profissionais que querem se preparar melhor para cada conversa com o cliente.</p>
+          <ul class="benefits">
+            <li><span class="check">✦</span><span>Compreenda fatores que influenciam a decisão de compra.</span></li>
+            <li><span class="check">✦</span><span>Observe sinais e conduza conversas com mais intenção.</span></li>
+            <li><span class="check">✦</span><span>Desenvolva uma abordagem de vendas mais clara e humana.</span></li>
+          </ul>
+          <a class="button" href="https://hotmart.com/pt-br/marketplace/produtos/a-mente-do-fechamento/P107671882K" target="_blank" rel="noopener noreferrer">Quero conhecer o e-book <span aria-hidden="true">↗</span></a>
+          <p class="micro">A compra é realizada na plataforma Hotmart.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="atuacao">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Como posso contribuir</div><h2>Desenvolvimento comercial para desafios reais.</h2></div>
+          <p>Conteúdo prático e personalizado para fortalecer a atuação de pessoas, equipes e lideranças.</p>
+        </div>
+        <div class="services">
+          <article class="service"><span class="service-num">01 / Empresas</span><h3>Treinamentos comerciais</h3><p>Capacitação em vendas, negociação, fechamento e atendimento ao cliente.</p></article>
+          <article class="service"><span class="service-num">02 / Eventos</span><h3>Palestras</h3><p>Conversas envolventes sobre vendas, gestão e desenvolvimento profissional.</p></article>
+          <article class="service"><span class="service-num">03 / Estratégia</span><h3>Consultoria</h3><p>Apoio para aprimorar processos comerciais e desenvolver equipes de vendas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow">Vamos conversar</div>
+          <h2>Prepare sua equipe para o próximo resultado.</h2>
+          <p>Conte um pouco sobre sua empresa e o que precisa. Sua mensagem será preparada para você enviar pelo WhatsApp.</p>
+          <div class="socials" aria-label="Redes sociais">
+            <a class="social-icon" href="https://www.instagram.com/adsontreinamentos_oficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg></a>
+            <a class="social-icon" href="https://www.youtube.com/c/AdsonTreinamentos" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></a>
+            <a class="social-icon" href="https://linktr.ee/AdsonTreinamentos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn e outras redes no Linktree"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3A2.2 2.2 0 1 1 5.2 7.4 2.2 2.2 0 0 1 5.2 3ZM3.3 9h3.8v12H3.3V9Zm6.1 0H13v1.6h.1A4.1 4.1 0 0 1 16.8 8.7c4 0 4.7 2.6 4.7 6V21h-3.8v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9.4V9Z"/></svg></a>
+            <a class="social-icon" href="https://linktr.ee/AdsonTreinamentos" target="_blank" rel="noopener noreferrer" aria-label="Todas as redes no Linktree"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 8.5 6h2.3L7.2 10h3v4.2h3.6V10h3L13.2 6h2.3L12 1Zm-8 12.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm16 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM10.2 19h3.6v4h-3.6v-4Z"/></svg></a>
+          </div>
+        </div>
+        <form class="contact-form" id="whatsapp-form">
+          <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required placeholder="Como podemos chamar você?"></div>
+          <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" autocomplete="organization" placeholder="Nome da empresa"></div>
+          <div class="field full"><label for="interesse">O que você procura?</label><select id="interesse" name="interesse" required><option value="" disabled selected>Selecione uma opção</option><option>Palestra</option><option>Treinamento comercial</option><option>Consultoria</option><option>Outro assunto</option></select></div>
+          <div class="field full"><label for="mensagem">Conte brevemente sobre o desafio</label><textarea id="mensagem" name="mensagem" required placeholder="Ex.: quero preparar a equipe para melhorar as negociações."></textarea></div>
+          <button class="button" type="submit">Continuar pelo WhatsApp <span aria-hidden="true">↗</span></button>
+          <p class="privacy-note">Ao continuar, o WhatsApp será aberto com sua mensagem preenchida para você revisar e enviar. Evite incluir dados confidenciais.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap footer-row"><a href="#inicio" aria-label="Adson Treinamentos — início"><img class="footer-logo" src="assets/footer.jpeg" alt="Adson Treinamentos"></a><span>© <span id="year">2026</span> Adson Treinamentos. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div>
+  </footer>
+  <script>
+    const whatsappNumber = "5577981015509";
+    const portraitPhoto = document.querySelector(".portrait-photo");
+    const portraitFallback = document.querySelector(".portrait-placeholder");
+    portraitPhoto.addEventListener("error", (event) => {
+      event.currentTarget.remove();
+      portraitFallback.hidden = false;
+    }, { once: true });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("whatsapp-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const message = [
+        "Olá, Adson! Gostaria de conversar sobre uma contratação.",
+        `Nome: ${data.get("nome")}`,
+        data.get("empresa") ? `Empresa: ${data.get("empresa")}` : "",
+        `Interesse: ${data.get("interesse")}`,
+        `Mensagem: ${data.get("mensagem")}`
+      ].filter(Boolean).join("\n");
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>

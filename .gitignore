@@ -1,0 +1,6 @@
+# Arquivos locais e materiais de origem não necessários ao deploy
+/Thumbs.db
+/*.jpeg
+/*.jpg
+/*.png
+/levantamento-adson-treinamentos.md
